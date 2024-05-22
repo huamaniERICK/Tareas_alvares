@@ -139,21 +139,41 @@ print(f"Has introducido {contador_negativos} números negativos.")
 # Si operación es 1 calcula la raíz cuadrada de la suma de A y B
 # Si operación es 2 calcula A / B. Vigilamos que B no sea 0...
 # Si la operación es 3 calculamos la siguiente fórmula: ( A * B ) / 2.5
-datos="A","B"
+# Función para calcular la raíz cuadrada de la suma de A y B
+def calcular_raiz_cuadrada_suma(A, B):
+    return (A + B) ** 0.5
+
+# Función para calcular A / B
+def calcular_division(A, B):
+    return A / B if B != 0 else "Error: No se puede dividir por cero."
+
+# Función para calcular (A * B) / 2.5
+def calcular_formula(A, B):
+    return (A * B) / 2.5
+
+# Encender la calculadora
 while True:
-    A=int(input("ingrese el dato A: "))
-    B=int(input("ingrese el  dato B: "))
-    print("1. raiz cuadrada de la suma de A y B")
-    print("2. calcular A/B. el dato b tiene que ser > 0")
-    print("3. calcular (A * B)/2.5")
-    opcion=input("elija una opcion(1/2/3): ")
-    if opcion==1:
-        resultado=A + B
-        print((resultado))
-        break
+    # Solicitar al usuario los datos A, B y la operación
+    A = float(input("Ingresa el valor de A: "))
+    B = float(input("Ingresa el valor de B: "))
+    operacion = int(input("Selecciona la operación (1: Raíz cuadrada de la suma, 2: División, 3: Fórmula): "))
 
+    # Realizar la operación correspondiente
+    if operacion == 1:
+        resultado = calcular_raiz_cuadrada_suma(A, B)
+    elif operacion == 2:
+        resultado = calcular_division(A, B)
+    elif operacion == 3:
+        resultado = calcular_formula(A, B)
+    else:
+        resultado = "Operación no válida."
 
+    # Mostrar el resultado de la operación
+    print("El resultado de la operación es:", resultado)
 
+    # Verificar si se debe apagar la calculadora
+    if input("¿Deseas continuar (SAL para salir)? ") == "SAL":
+     break
 
 
 # Ejercicio 14
